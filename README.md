@@ -91,8 +91,8 @@ The server will be available at `http://localhost:3000` by default.
 Request Body should contain a json containing email and password
 ```json
 {
-"email":<user-email>,
-"password":<user-password>
+"email":"<user-email>",
+"password":"<user-password>"
 }
 ```
 
@@ -109,9 +109,9 @@ Request Body should contain a json containing email and password
 Request body should have a json object like this 
 ```json
 {
-"name":<user-name>,
-"email":<user-email>,
-"password":<user-password>
+"name":"<user-name>",
+"email":"<user-email>",
+"password":"<user-password>"
 }
 ```
 
@@ -135,11 +135,11 @@ Request body should have a json object like this
 Request body should contains a json like
 ```json
 {
-"sno":<serial-no>, // Required & should be unique for all items 
-"name":<item-name>, // Required
-"quantity":<item-quantity>, // Required
-"price":<item-price>
-"manufacturer":<item-manufacturer> // Optional
+"sno":"<serial-no>", // Required & should be unique for all items 
+"name":"<item-name>", // Required
+"quantity":"<item-quantity>", // Required
+"price":"<item-price>",  // Required
+"manufacturer":"<item-manufacturer>" // Optional
 }
 ```
 
