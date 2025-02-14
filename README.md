@@ -127,6 +127,7 @@ Request body should have a json object like this
 | query     | Query used to search items names      |
 | page      | Page no (if multiple search results)  |
 | limit     | No of resutls to show (defaults to 5) |
+
 #### Add Items (POST /inventory/add)
 ```
 /inventory/add
@@ -152,6 +153,7 @@ Request body should contains a json like
 | --------- | ------------------- |
 | sno       | Item Serial No      |
 | id        | Unique id for items |
+
 Request Body should contain a json with fields to update. For example 
 ```json
 {
