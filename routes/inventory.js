@@ -55,7 +55,7 @@ router.get("/s", async (req, res) => {
     }
 
     // If results are empty
-      res.status(401).json({
+      res.status(400).json({
         success: false,
         message: "No item found.",
       });
@@ -87,7 +87,7 @@ router.post("/add", async (req, res) => {
 
     //Save new item
     await item.save();
-    res.status(200).json({ success: true, message: "Item added", data: item });
+    res.status(201).json({ success: true, message: "Item added", data: item });
   } catch (error) {
     res.send({ success: true, error: error.name, message: error.message });
   }
@@ -104,7 +104,7 @@ router.put("/update", async (req, res) => {
     // Check for id and data
     if ((!id && !sno) || Object.keys(data).length == 0) {
       res
-        .status(401)
+        .status(400)
         .json({ success: false, message: "ID/Sno or Data not provided" });
       return;
     }
@@ -119,14 +119,14 @@ router.put("/update", async (req, res) => {
 
     // If no data is found for that id -> invalid id
     if (!oldData) {
-      res.status(401).json({
+      res.status(400).json({
         success: false,
         message: "Id does not match any element in inventory.",
       });
       return;
     }
     res
-      .status(200)
+      .status(201)
       .json({ success: true, message: "Updated Successfully", oldData });
   } catch (error) {
     if (error.name == "CastError") {
@@ -144,7 +144,7 @@ router.delete("/delete", async (req, res) => {
     let sno = req.query.sno;
     // Check if id or sno is provided or not
     if (!(id || sno)) {
-      res.status(401).json({ success: false, message: "Id/Sno not provided" });
+      res.status(400).json({ success: false, message: "Id/Sno not provided" });
       return;
     }
 
@@ -158,7 +158,7 @@ router.delete("/delete", async (req, res) => {
 
     // If no item was present for that id
     if (!deletedItem) {
-      res.status(401).json({
+      res.status(400).json({
         success: false,
         message: "Id does not match any element in inventory.",
       });

@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
     // Check if all details are present
     if (!(name && email && password)) {
       res
-        .status(401)
+        .status(400)
         .json({ success: false, error: "All details not provided." });
       return;
     }
@@ -34,7 +34,7 @@ router.post("/register", async (req, res) => {
     const newUser = new users({ name, email, password: hashPassword });
     await newUser.save();
 
-    res.json({ status: 200, success: true, message: "User Registered." });
+    res.status(201).json({ status: 201, success: true, message: "User Registered." });
   } catch (error) {
     res.json({
       success: false,

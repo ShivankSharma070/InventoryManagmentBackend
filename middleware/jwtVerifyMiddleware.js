@@ -25,7 +25,7 @@ const jwtVerifyMiddleware = (req, res, next) => {
     //If token has expired
     if (e.name == "TokenExpiredError") {
       res
-        .status(400)
+        .status(401)
         .json({
           success: false,
           error:e.name,
@@ -36,7 +36,7 @@ const jwtVerifyMiddleware = (req, res, next) => {
     // If token is invalid or any other cause
     else {
       res
-        .status(400)
+        .status(401)
         .json({
           success: false,
           error:e.name,
